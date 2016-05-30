@@ -1,0 +1,14 @@
+---
+
+- name: install gunicorn
+  pip:
+    name=gunicorn
+    virtualenv="{{ appvenv }}"
+
+- name: creates directory for log files
+  file: path="{{ gunicorn_app_dir }}/logs" state=directory
+
+- name: copy gunicorn config file
+  template: src=gunicorn.conf dest="{{ gunicorn_app_dir }}/gunicorn.conf"
+  notify:
+    - start gunicorn

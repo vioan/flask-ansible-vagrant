@@ -1,0 +1,12 @@
+---
+
+- name: Install Python virtualenv, Nginx, Gunicorn
+  hosts: all
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - python
+    - nginx
+    - gunicorn
+

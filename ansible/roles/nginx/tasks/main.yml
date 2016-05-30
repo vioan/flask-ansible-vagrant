@@ -1,0 +1,53 @@
+---
+
+# SUSE Linux Enterprise Server 12 SP1
+# - name: add nginx repository
+#   zypper_repository: name=nginx-repo repo='http://nginx.org/packages/sles/12' state=present
+
+# - name: refresh the repos
+#   command: zypper --gpg-auto-import-keys ref
+
+# - name: install nginx
+#   zypper: name=nginx state=present
+
+# - name: remove the default main config file
+#   file: dest=/etc/nginx/nginx.conf state=absent
+
+# - name: copy custom nginx configuration file
+#   template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+# - name: creates directory for site config files
+#   file: path=/etc/nginx/conf.d state=directory
+
+# - name: add custom nginx configuration file
+#   template: src=userapp.conf dest="/etc/nginx/conf.d/{{ nginx_config_name }}"
+#   notify: start nginx
+
+# not really needed
+# - name: backup the default site config file to .orig
+#   copy: remote_src=True src=/etc/nginx/conf.d/default.conf dest=/etc/nginx/conf.d/default.conf.orig
+
+
+# OpenSUSE 13.2
+- name: add nginx repository
+  zypper_repository: repo=http://download.opensuse.org/repositories/server:/http/openSUSE_13.2/server:http.repo state=present
+
+- name: refresh the repos
+  command: zypper --gpg-auto-import-keys ref
+
+- name: install nginx
+  zypper: name=nginx state=present
+
+- name: remove the default main config file
+  file: dest=/etc/nginx/nginx.conf state=absent
+
+- name: copy custom nginx configuration file
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: creates directory for site config files
+  file: path=/etc/nginx/conf.d state=directory
+
+- name: add custom nginx site configuration file
+  template: src=userapp.conf dest="/etc/nginx/conf.d/userapp.conf"
+  notify: start nginx
+

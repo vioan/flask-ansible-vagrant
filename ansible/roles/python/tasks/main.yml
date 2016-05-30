@@ -1,0 +1,24 @@
+---
+
+- name: create a user for API application
+  user: name="{{ api_user_name }}" password="{{ api_user_password }}"
+
+- name: install dependencies
+  zypper: name={{ item }} state=present
+  with_items:
+     - python-setuptools
+     - git-core
+     - wget
+     - curl
+- name: install pip using easy_install
+  easy_install: name=pip
+
+- name: install virtualenv using pip
+  pip: name=virtualenv
+
+- name: install the requirements inside virtualenv
+  pip:
+      chdir="{{ python_app_path }}"
+      virtualenv="{{ appvenv }}"
+      virtualenv_command=virtualenv
+      requirements="{{ python_req_file }}"

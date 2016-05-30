@@ -1,0 +1,8 @@
+[prod-server]
+192.168.0.60
+
+[test-server]
+192.168.0.60
+
+[devel-server]
+192.168.0.60

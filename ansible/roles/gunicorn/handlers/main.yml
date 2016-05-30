@@ -1,0 +1,4 @@
+---
+
+- name: start gunicorn
+  command: chdir="{{ gunicorn_app_dir }}" {{ appvenv }}/bin/gunicorn -c {{ gunicorn_app_dir }}/gunicorn.conf app:app -b 0.0.0.0:5000

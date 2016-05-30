@@ -1,0 +1,22 @@
+---
+
+# a new user to run the API application
+# password created with:
+# $ python -c 'import crypt; print crypt.crypt("Flask_App", "SomeSalt")'
+# Soyb92LEGOFIc
+api_user_name: userapp
+api_user_password: SosKyeV17g0Vo
+
+# python environment
+python_app_path: /home/userapp/app
+python_req_file: requirements.txt
+appvenv: /home/userapp/appvenv
+
+# API
+api_app_dir: '{{ python_app_path }}'
+
+# nginx
+nginx_config_name: userapp.conf
+
+# gunicorn
+gunicorn_app_dir: '{{ python_app_path }}'
