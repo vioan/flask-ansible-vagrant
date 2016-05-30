@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 5000, host: 8050
 
-  config.vm.synced_folder "app/", "/home/nomadapp/app", create: true
+  config.vm.synced_folder "app/", "/home/userapp/app", create: true
 
    config.vm.provider "virtualbox" do |vb|
      vb.gui = false
