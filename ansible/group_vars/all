@@ -5,7 +5,7 @@
 # $ python -c 'import crypt; print crypt.crypt("Flask_App", "SomeSalt")'
 # Soyb92LEGOFIc
 api_user_name: userapp
-api_user_password: SosKyeV17g0Vo
+api_user_password: Soyb92LEGOFIc
 
 # python environment
 python_app_path: /home/userapp/app
